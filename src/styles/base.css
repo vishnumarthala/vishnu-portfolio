@@ -1,0 +1,153 @@
+:root {
+  --screen: #141112;
+  --panel: #201b1c;
+  --panel-2: #2c2627;
+  --panel-3: #3a3233;
+  --line: #3a3233;
+  --text: #f3eeea;
+  --text-2: #c5bcb7;
+  --text-3: #9a908b;
+  --brand: #e8442c;
+  --brand-btn: #d42f1b;
+  --brand-btn-hover: #b92612;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --pad: clamp(1rem, 4vw, 3.75rem);
+  --gap: clamp(0.4rem, 0.6vw, 0.6rem);
+  --per: 4;
+  --tile-w: calc((100vw - var(--pad) * 2 - var(--gap) * (var(--per) - 1)) / var(--per));
+}
+
+@media (max-width: 1200px) {
+  :root { --per: 3.4; }
+}
+@media (max-width: 860px) {
+  :root { --per: 2.3; }
+}
+@media (max-width: 520px) {
+  :root { --per: 1.6; }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--screen);
+  color: var(--text);
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: #4a4041 var(--screen);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+html:has(dialog[open]),
+html[data-gate="open"] {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; }
+button { font: inherit; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+::selection {
+  background: var(--brand-btn);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+main:focus { outline: none; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 200;
+  background: var(--text);
+  color: var(--screen);
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip:focus { top: 1rem; }
+
+/* One family at three widths, plus a serif voice for the academic titles */
+.face--cond,
+.mono-chip {
+  font-weight: 900;
+  font-stretch: 62%;
+  font-variation-settings: "wdth" 62;
+  text-transform: uppercase;
+}
+.face--cond { line-height: 0.88; letter-spacing: -0.005em; }
+.face--wide {
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+.face--serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+.wordmark {
+  color: var(--brand);
+  font-size: 1.45rem;
+  font-weight: 800;
+  font-stretch: 88%;
+  font-variation-settings: "wdth" 88;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* The catalogue mark: an outlined monogram in the surrounding ink */
+.mono-chip {
+  display: inline-grid;
+  place-items: center;
+  padding: 0.12em 0.32em 0.06em;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  color: var(--text);
+  font-size: 0.95em;
+  line-height: 1;
+  letter-spacing: 0;
+}
