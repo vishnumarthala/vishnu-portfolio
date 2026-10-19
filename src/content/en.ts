@@ -490,7 +490,7 @@ const en: Dict = {
       body: [
         {
           heading: "Information according to § 5 DDG",
-          text: ["Vishnu Marthala", "[Street and house number]", "[Postcode] Backnang, Germany"],
+          text: ["Vishnu Marthala", "Im Biegel 12", "71522 Backnang, Germany"],
         },
         {
           heading: "Contact",

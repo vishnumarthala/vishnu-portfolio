@@ -490,7 +490,7 @@ const de: Dict = {
       body: [
         {
           heading: "Angaben gemäß § 5 DDG",
-          text: ["Vishnu Marthala", "[Straße und Hausnummer]", "[PLZ] Backnang"],
+          text: ["Vishnu Marthala", "Im Biegel 12", "71522 Backnang"],
         },
         {
           heading: "Kontakt",

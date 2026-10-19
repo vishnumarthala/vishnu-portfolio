@@ -32,7 +32,7 @@ Visitors arrive from LinkedIn, conference contexts, email signatures, and IndoFa
 - Content must stay professional enough for his role at Roche.
 - Use only facts from the source PDF. No invented metrics, clients, or testimonials.
 - Contact: WhatsApp on the same mobile number as the phone (+49 176 41791626, assumed), email, phone. The hiring request form composes a message for WhatsApp or email; the site itself sends and stores nothing.
-- Open: portrait photo; years and roles at Festo, DMG MORI Software Solutions, KEB Automation; LinkedIn profile URL (the supplied link is the LinkedIn feed, not a profile); Impressum/Datenschutz legal text.
+- Open: portrait photo; years and roles at Festo, DMG MORI Software Solutions, KEB Automation; LinkedIn profile URL (the supplied link is the LinkedIn feed, not a profile); legal review of Impressum/Datenschutz (address confirmed: Im Biegel 12, 71522 Backnang).
 
 ## Brand Commitments
 

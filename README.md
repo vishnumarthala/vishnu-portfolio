@@ -37,7 +37,7 @@ All copy lives in typed dictionaries, transcribed from the source PDF (`docs/sou
 
 - **LinkedIn profile URL**: set `LINKEDIN_URL` in `src/content/site.ts` (the link supplied was the LinkedIn feed, not a profile). LinkedIn links in the contact block, footer and structured data appear automatically once it is set.
 - **Years and roles** at Festo, DMG MORI Software Solutions and KEB Automation (`festo`, `dmg-mori`, `keb` titles in both dictionaries).
-- **Impressum / Datenschutz**: street address and postcode, and a legal review (both pages are marked as drafts and set to `noindex`).
+- **Impressum / Datenschutz**: a legal review. The address is filled in; both pages still show a draft notice (`legal.draft` in the dictionaries) and are set to `noindex` until reviewed.
 - Optional portrait (the PDF had a placeholder; the design does not need one).
 
 ## Deploy to Vercel
