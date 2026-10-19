@@ -102,3 +102,20 @@ export const IconArrowRight = (p: P) => (
     <path d="M5 12h14M13 6l6 6-6 6" />
   </svg>
 );
+export const IconChat = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6Z" />
+    <path d="M9 10.5h6M9 13.5h4" />
+  </svg>
+);
+export const IconCopy = (p: P) => (
+  <svg {...base(p)}>
+    <rect x="8.5" y="8.5" width="11" height="11" rx="1.5" />
+    <path d="M15.5 8.5V5.5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3" />
+  </svg>
+);
+export const IconCheck = (p: P) => (
+  <svg {...base(p)}>
+    <path d="m5 12.5 4.5 4.5L19 7.5" />
+  </svg>
+);

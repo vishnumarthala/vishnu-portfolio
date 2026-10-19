@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { flushSync } from "react-dom";
 import type { Dict, ProfileId, TitleId } from "@/content/types";
-import { CatalogContext } from "./catalog";
+import { CatalogContext, type ContactRequest } from "./catalog";
+import ContactSheet from "./ContactSheet";
 import Billboard from "./Billboard";
 import Intro from "./Intro";
 import Nav from "./Nav";
@@ -55,6 +56,7 @@ export default function Browse({ dict }: { dict: Dict }) {
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState<TitleId | null>(null);
   const [intro, setIntro] = useState(false);
+  const [contactReq, setContactReq] = useState<ContactRequest | null>(null);
   const profile = useProfile();
 
   const billboards = useMemo(() => Array.from(new Set(dict.profiles.map((p) => p.billboard))), [dict]);
@@ -119,12 +121,26 @@ export default function Browse({ dict }: { dict: Dict }) {
   }, []);
 
   const endIntro = useCallback(() => setIntro(false), []);
+
+  const contact = useCallback(
+    (req?: ContactRequest) => {
+      const tab = req?.tab ?? (profile === "hiring" ? "hiring" : "message");
+      setContactReq({ tab, topic: req?.topic });
+    },
+    [profile],
+  );
+  const closeContact = useCallback(() => setContactReq(null), []);
+
+  const addYourself = useCallback(() => {
+    setProfile("browse");
+    setContactReq({ tab: "message" });
+  }, []);
   const searching = query.trim().length > 0;
 
   return (
-    <CatalogContext.Provider value={{ dict, open }}>
+    <CatalogContext.Provider value={{ dict, open, contact }}>
       <style dangerouslySetInnerHTML={{ __html: profileCss(dict) }} />
-      <ProfileGate onChoose={choose} />
+      <ProfileGate onChoose={choose} onAddYourself={addYourself} />
       {intro ? <Intro onDone={endIntro} /> : null}
       <div id="shell">
         <a className="skip" href="#main">
@@ -156,6 +172,7 @@ export default function Browse({ dict }: { dict: Dict }) {
         <Footer />
       </div>
       <TitleDialog id={openId} onRequestClose={close} />
+      <ContactSheet request={contactReq} onRequestClose={closeContact} />
     </CatalogContext.Provider>
   );
 }

@@ -305,6 +305,29 @@ const motifs: Record<Motif, Draw> = {
     return out;
   },
 
+  flights(w, h, s) {
+    const out: ReactNode[] = [];
+    const ox = w * 0.9;
+    const oy = h * 0.56;
+    const dests: [number, number][] = [
+      [w * 0.5, h * 0.3],
+      [w * 0.6, h * 0.14],
+      [w * 0.74, h * 0.08],
+      [w * 0.86, h * 0.12],
+    ];
+    dests.forEach(([x, y], i) => {
+      const cx = (ox + x) / 2 - w * 0.06;
+      const cy = Math.min(oy, y) - h * 0.12;
+      out.push(
+        <path key={`a${i}`} d={`M${r1(ox)} ${r1(oy)} Q${r1(cx)} ${r1(cy)} ${r1(x)} ${r1(y)}`} fill="none" stroke={i === 1 ? s.accent : s.ink} strokeOpacity={i === 1 ? 1 : 0.45} strokeWidth={i === 1 ? 1.8 : 1} strokeDasharray="4 4" strokeLinecap="round" />,
+      );
+      out.push(<circle key={`d${i}`} cx={r1(x)} cy={r1(y)} r={i === 1 ? 4.5 : 3} fill="none" stroke={i === 1 ? s.accent : s.ink} strokeWidth={1.4} />);
+    });
+    out.push(<circle key="o" cx={r1(ox)} cy={r1(oy)} r={4.2} fill={s.accent} />);
+    out.push(<circle key="og" cx={r1(ox)} cy={r1(oy)} r={10} fill="none" stroke={s.accent} strokeOpacity={0.5} />);
+    return out;
+  },
+
   seal(w, h, s) {
     const out: ReactNode[] = [];
     const cx = w * 0.74;
@@ -322,29 +345,6 @@ const motifs: Record<Motif, Draw> = {
       <text key="t" x={cx} y={r1(cy + 4)} textAnchor="middle" fontSize={11} fill={s.ink} className="art-label art-label--strong">
         CPSA
       </text>,
-    );
-    return out;
-  },
-
-  ring(w, h, s) {
-    const out: ReactNode[] = [];
-    const cx = w * 0.74;
-    const cy = h * 0.38;
-    const R = h * 0.27;
-    const pts: [number, number][] = [];
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
-      pts.push([cx + Math.cos(a) * R, cy + Math.sin(a) * R]);
-    }
-    out.push(<polygon key="poly" points={pts.map(([x, y]) => `${r1(x)},${r1(y)}`).join(" ")} fill="none" stroke={s.ink} strokeOpacity={0.25} />);
-    pts.forEach(([x, y], i) =>
-      out.push(
-        i < 8 ? (
-          <circle key={i} cx={r1(x)} cy={r1(y)} r={4.4} fill={s.accent} />
-        ) : (
-          <circle key={i} cx={r1(x)} cy={r1(y)} r={4.4} fill="none" stroke={s.ink} strokeOpacity={0.7} strokeDasharray="2 2" />
-        ),
-      ),
     );
     return out;
   },

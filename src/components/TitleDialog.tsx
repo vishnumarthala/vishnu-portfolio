@@ -4,8 +4,8 @@ import { useLayoutEffect, useRef } from "react";
 import { art } from "@/content/art";
 import type { TitleId } from "@/content/types";
 import KeyArt from "./KeyArt";
-import { mailto, relatedTitles, useCatalog } from "./catalog";
-import { IconClose, IconExternal, IconMail } from "./icons";
+import { HIRING_TITLES, relatedTitles, useCatalog } from "./catalog";
+import { IconClose, IconExternal, IconChat } from "./icons";
 
 interface Props {
   id: TitleId | null;
@@ -42,7 +42,7 @@ export default function TitleDialog({ id, onRequestClose }: Props) {
 }
 
 function Body({ id, onRequestClose }: { id: TitleId; onRequestClose: () => void }) {
-  const { dict, open } = useCatalog();
+  const { dict, open, contact } = useCatalog();
   const { ui } = dict;
   const t = dict.titles[id];
   const more = relatedTitles(dict, id);
@@ -59,10 +59,15 @@ function Body({ id, onRequestClose }: { id: TitleId; onRequestClose: () => void 
             {t.name}
           </h2>
           <div className="dlg__actions">
-            <a className="btn btn--brand" href={mailto(dict.contact.email, t.name)}>
-              <IconMail />
+            <button
+              type="button"
+              className="btn btn--brand"
+              aria-haspopup="dialog"
+              onClick={() => contact({ tab: HIRING_TITLES.has(id) ? "hiring" : "message", topic: id === "vishnu" ? undefined : t.name })}
+            >
+              <IconChat />
               {ui.getInTouch}
-            </a>
+            </button>
             {t.link ? (
               <a className="btn btn--ghost" href={t.link.href} target="_blank" rel="noopener noreferrer">
                 <IconExternal />

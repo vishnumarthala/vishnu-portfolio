@@ -3,10 +3,27 @@
 import { createContext, useContext } from "react";
 import type { Dict, TitleId } from "@/content/types";
 
+export type ContactTab = "message" | "hiring";
+
+export interface ContactRequest {
+  tab?: ContactTab;
+  topic?: string;
+}
+
 export interface Catalog {
   dict: Dict;
   open: (id: TitleId, source?: Element | null) => void;
+  contact: (req?: ContactRequest) => void;
 }
+
+/** Titles that belong to the India-to-Germany hiring track; their contact opens the hiring request. */
+export const HIRING_TITLES: ReadonlySet<TitleId> = new Set<TitleId>([
+  "talent-india",
+  "indofachkraft",
+  "ausbildung-assist",
+  "marthala-solutions",
+  "remote-talent",
+]);
 
 export const CatalogContext = createContext<Catalog | null>(null);
 
@@ -16,8 +33,35 @@ export function useCatalog(): Catalog {
   return ctx;
 }
 
-export const mailto = (email: string, subject?: string) =>
-  `mailto:${email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
+export const mailto = (email: string, subject?: string, body?: string) => {
+  const q = [
+    subject ? `subject=${encodeURIComponent(subject)}` : "",
+    body ? `body=${encodeURIComponent(body)}` : "",
+  ].filter(Boolean);
+  return `mailto:${email}${q.length ? `?${q.join("&")}` : ""}`;
+};
+
+export const whatsapp = (number: string, text?: string) =>
+  `https://wa.me/${number}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+
+export async function copyText(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    // Clipboard API is unavailable on insecure origins and some embedded browsers.
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  }
+}
 
 const fold = (s: string) =>
   s

@@ -24,13 +24,14 @@ A certified software architect (iSAQB CPSA) who has worked in Germany since 2014
 
 ## Operating Context
 
-Visitors arrive from LinkedIn, conference contexts, email signatures, and IndoFachkraft. They scan for role, credibility, and contact details. German visitors expect an Impressum and Datenschutz page and may prefer German.
+Visitors arrive from LinkedIn, conference contexts, email signatures, and IndoFachkraft. They scan for role, credibility, and contact details. German employers want to send a concrete hiring request (company, areas, positions, start) without hunting for an address; everyone else wants WhatsApp, email or a call in one step. German visitors expect an Impressum and Datenschutz page and may prefer German.
 
 ## Capabilities and Constraints
 
 - Sections: hero, What I do, Ventures, Selected AI work, Experience and education, Contact. Footer: Impressum, Datenschutz.
 - Content must stay professional enough for his role at Roche.
 - Use only facts from the source PDF. No invented metrics, clients, or testimonials.
+- Contact: WhatsApp on the same mobile number as the phone (+49 176 41791626, assumed), email, phone. The hiring request form composes a message for WhatsApp or email; the site itself sends and stores nothing.
 - Open: portrait photo; years and roles at Festo, DMG MORI Software Solutions, KEB Automation; LinkedIn profile URL (the supplied link is the LinkedIn feed, not a profile); Impressum/Datenschutz legal text.
 
 ## Brand Commitments
@@ -42,7 +43,7 @@ Visitors arrive from LinkedIn, conference contexts, email signatures, and IndoFa
 ## Evidence on Hand
 
 - `docs/source/Vishnu Marthala Portfolio.pdf` (local only, git-ignored): complete EN and DE copy for every section.
-- Real facts: working in Germany since 2014; iSAQB CPSA; M.Sc. INFOTECH, Universität Stuttgart (2013 to 2016); B.Tech ECE, VIT (2009 to 2013); IndoFachkraft (founded 2026, Backnang); ausbildung-assist.de (200 B2-certified candidates); Marthala Solutions (since 2017, Guntur, around 20 Ausbildung placements 2023 to 2025); a Telugu-language RAG platform over a Telugu daily newspaper's archive; Transformers and LLMs certificate course (in preparation); European Telugu Association e.V. (in formation).
+- Real facts: working in Germany since 2014; iSAQB CPSA; M.Sc. INFOTECH, Universität Stuttgart (2013 to 2016); B.Tech ECE, VIT (2009 to 2013); IndoFachkraft (founded 2026, Backnang); ausbildung-assist.de (200 B2-certified candidates); Marthala Solutions (since 2017, Guntur, around 20 Ausbildung placements 2023 to 2025); a Telugu-language RAG platform over a Telugu daily newspaper's archive; OverseasScholar (AI-based career coach for Indian students planning to study abroad, OverseasScholar.in, not yet live); Transformers and LLMs certificate course (in preparation).
 - Absent: portrait, testimonials, client logos, metrics beyond the above. Do not fabricate.
 
 ## Product Principles

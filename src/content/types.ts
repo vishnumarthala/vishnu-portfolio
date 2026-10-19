@@ -17,6 +17,7 @@ export type TitleId =
   | "marthala-solutions"
   | "remote-talent"
   | "telugu-rag"
+  | "overseas-scholar"
   | "transformers-course"
   | "roche"
   | "festo"
@@ -24,8 +25,7 @@ export type TitleId =
   | "keb"
   | "msc-stuttgart"
   | "btech-vit"
-  | "cpsa"
-  | "eta";
+  | "cpsa";
 
 export type RowId =
   | "tracks"
@@ -138,6 +138,48 @@ export interface Dict {
     linkedin: string | null;
     linkedinLabel: string;
     location: string;
+    whatsappNumber: string;
+    hiringCta: string;
+  };
+  sheet: {
+    title: string;
+    lead: string;
+    tabMessage: string;
+    tabHiring: string;
+    whatsapp: string;
+    email: string;
+    writeEmail: string;
+    copy: string;
+    copied: string;
+    call: string;
+    greeting: string;
+    greetingTopic: string;
+    emailSubject: string;
+  };
+  hiring: {
+    intro: string;
+    company: string;
+    name: string;
+    reach: string;
+    reachHint: string;
+    location: string;
+    fields: string;
+    fieldOptions: string[];
+    type: string;
+    typeOptions: string[];
+    positions: string;
+    start: string;
+    startHint: string;
+    message: string;
+    optional: string;
+    sendWhatsapp: string;
+    sendEmail: string;
+    copy: string;
+    copied: string;
+    note: string;
+    errors: { company: string; name: string; reach: string; summary: string };
+    subject: string;
+    heading: string;
   };
   faqTitle: string;
   faq: Faq[];

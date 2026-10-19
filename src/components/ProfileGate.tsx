@@ -4,10 +4,15 @@ import { useEffect, useRef } from "react";
 import type { ProfileId } from "@/content/types";
 import Avatar from "./Avatar";
 import LangSwitch from "./LangSwitch";
-import { mailto, useCatalog } from "./catalog";
+import { useCatalog } from "./catalog";
 import { useGateOpen } from "@/lib/profile";
 
-export default function ProfileGate({ onChoose }: { onChoose: (id: ProfileId) => void }) {
+interface Props {
+  onChoose: (id: ProfileId) => void;
+  onAddYourself: () => void;
+}
+
+export default function ProfileGate({ onChoose, onAddYourself }: Props) {
   const { dict } = useCatalog();
   const open = useGateOpen();
   const firstRef = useRef<HTMLButtonElement>(null);
@@ -50,11 +55,11 @@ export default function ProfileGate({ onChoose }: { onChoose: (id: ProfileId) =>
             </li>
           ))}
           <li>
-            <a className="gate__profile" href={mailto(dict.contact.email)}>
+            <button type="button" className="gate__profile" onClick={onAddYourself}>
               <Avatar id="add" />
               <span className="gate__name">{dict.gate.addName}</span>
               <span className="gate__hint">{dict.gate.addHint}</span>
-            </a>
+            </button>
           </li>
         </ul>
         <p className="gate__note">{dict.gate.note}</p>

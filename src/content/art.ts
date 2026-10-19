@@ -15,7 +15,7 @@ export type Motif =
   | "perspective"
   | "circuit"
   | "seal"
-  | "ring";
+  | "flights";
 
 export type Face = "cond" | "wide" | "serif";
 
@@ -36,6 +36,7 @@ export const art: Record<TitleId, ArtSpec> = {
   "marthala-solutions": { motif: "tally", bg: "#4a1020", ink: "#f6dfc8", accent: "#f4b63a", face: "serif" },
   "remote-talent": { motif: "signal", bg: "#1a1e2a", ink: "#d3dbf2", accent: "#8fb0ff", face: "wide" },
   "telugu-rag": { motif: "script", bg: "#f3eee3", ink: "#151414", accent: "#ffd23f", face: "cond" },
+  "overseas-scholar": { motif: "flights", bg: "#0f3b4c", ink: "#e8f4f4", accent: "#ffc857", face: "wide" },
   "transformers-course": { motif: "matrix", bg: "#121119", ink: "#f1ecf7", accent: "#ffb547", face: "wide" },
   roche: { motif: "lattice", bg: "#1d2c36", ink: "#e9f1f5", accent: "#ff7a45", face: "wide" },
   festo: { motif: "strata", bg: "#263428", ink: "#e6efe4", accent: "#b9e46e", face: "cond" },
@@ -44,5 +45,4 @@ export const art: Record<TitleId, ArtSpec> = {
   "msc-stuttgart": { motif: "perspective", bg: "#e7e2d6", ink: "#1e2a3a", accent: "#d8301c", face: "serif" },
   "btech-vit": { motif: "circuit", bg: "#0d2b1f", ink: "#e2f5e8", accent: "#f2c14e", face: "serif" },
   cpsa: { motif: "seal", bg: "#f1cf63", ink: "#2a1a06", accent: "#8a3b12", face: "wide" },
-  eta: { motif: "ring", bg: "#5a1a12", ink: "#fbe7d2", accent: "#f2b134", face: "serif" },
 };

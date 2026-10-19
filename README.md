@@ -11,7 +11,9 @@ Built with Next.js 16 (App Router), React 19 and vanilla CSS. Designed with the 
 - **Rows** of titles with scroll-snap rails, paddles, hover/focus preview cards and a numbered "Experience" row.
 - **Title dialog** (`?title=<id>` deep links) with episodes and "More like this", opening with a view transition from the tile.
 - **Search** across all titles (word-prefix matching, EN and DE).
-- Coming soon row, contact block, FAQ, footer, Impressum and Datenschutz pages.
+- **Get in touch sheet**: every contact button opens a sheet with *Chat on WhatsApp* (pre-filled message), email (with a copy button, so it never depends on a mail app), and call.
+- **Hiring request for employers** (*Hiring from India* tab): company, contact, areas, trainees or skilled workers, positions and start date are composed into a tidy message that opens in WhatsApp or the email app, ready to send. Nothing is sent or stored by the site, so no backend or API keys are needed.
+- Coming soon row (OverseasScholar, the Transformers and LLMs course, remote talent), contact block, FAQ, footer, Impressum and Datenschutz pages.
 - `prefers-reduced-motion` removes the intro, trailer animation and morphs.
 
 ## Develop
@@ -28,7 +30,7 @@ npm run build
 All copy lives in typed dictionaries, transcribed from the source PDF (`docs/source/`, kept local and git-ignored):
 
 - `src/content/en.ts`, `src/content/de.ts`: every string, title, row and FAQ
-- `src/content/site.ts`: email, phone, LinkedIn URL, site URL
+- `src/content/site.ts`: email, phone, WhatsApp number, LinkedIn URL, site URL
 - `src/content/art.ts`: palette and motif per title (rendered by `src/components/KeyArt.tsx`)
 
 ### Still to fill in

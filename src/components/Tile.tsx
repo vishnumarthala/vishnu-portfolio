@@ -2,8 +2,8 @@
 
 import type { RowKind, TitleId } from "@/content/types";
 import KeyArt from "./KeyArt";
-import { mailto, useCatalog } from "./catalog";
-import { IconChevronDown, IconMail } from "./icons";
+import { useCatalog } from "./catalog";
+import { IconChevronDown, IconChat } from "./icons";
 
 interface Props {
   id: TitleId;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Tile({ id, kind, index }: Props) {
-  const { dict, open } = useCatalog();
+  const { dict, open, contact } = useCatalog();
   const t = dict.titles[id];
   const { ui } = dict;
   const band =
@@ -72,10 +72,10 @@ export default function Tile({ id, kind, index }: Props) {
             </p>
             <h3 className="tile__name">{t.name}</h3>
             {t.tagline ? <p className="tile__tagline">{t.tagline}</p> : null}
-            <a className="text-btn" href={mailto(dict.contact.email, t.name)}>
-              <IconMail />
+            <button type="button" className="text-btn" aria-haspopup="dialog" onClick={() => contact({ tab: "message", topic: t.name })}>
+              <IconChat />
               {ui.notify}
-            </a>
+            </button>
           </div>
         ) : null}
       </article>

@@ -154,8 +154,17 @@
   letter-spacing: -0.02em;
 }
 .contact__lead { margin: 1rem 0 1.9rem; color: var(--text-2); font-size: clamp(1rem, 1.4vw, 1.25rem); }
-.contact__cta { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
-.contact__email { color: var(--text-2); text-underline-offset: 0.25em; text-decoration-color: rgb(197 188 183 / 0.4); }
+.contact__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; }
+.contact__emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 1.2rem;
+  margin: 1.6rem 0 0;
+}
+.contact__email { color: var(--text-2); font-size: 1.1rem; text-underline-offset: 0.25em; text-decoration-color: rgb(197 188 183 / 0.4); }
+.contact__copy { font-size: 0.875rem; color: var(--text-2); }
 .contact__list {
   display: flex;
   flex-wrap: wrap;
@@ -241,5 +250,5 @@
   font-size: 0.9rem;
 }
 .legal__section h2 { margin: 2rem 0 0.5rem; font-size: 1.1rem; }
-.legal__section p { margin: 0.25rem 0; color: var(--text-2); }
+.legal__section p { margin: 0.25rem 0; max-width: 58ch; color: var(--text-2); }
 .legal__foot { padding: 2rem var(--pad); border-top: 1px solid var(--line); color: var(--text-3); font-size: 0.85rem; }

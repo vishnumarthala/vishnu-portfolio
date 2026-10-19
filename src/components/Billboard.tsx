@@ -3,11 +3,11 @@
 import { useRef } from "react";
 import type { TitleId } from "@/content/types";
 import KeyArt from "./KeyArt";
-import { mailto, useCatalog } from "./catalog";
-import { IconInfo, IconMail } from "./icons";
+import { HIRING_TITLES, useCatalog } from "./catalog";
+import { IconInfo, IconChat } from "./icons";
 
 export default function Billboard({ id }: { id: TitleId }) {
-  const { dict, open } = useCatalog();
+  const { dict, open, contact } = useCatalog();
   const { person, ui } = dict;
   const t = dict.titles[id];
   const isPerson = id === "vishnu";
@@ -43,8 +43,16 @@ export default function Billboard({ id }: { id: TitleId }) {
         <p className="bb__headline">{isPerson ? person.headline : t.tagline}</p>
         <p className="bb__synopsis">{isPerson ? person.intro : t.synopsis}</p>
         <div className="bb__actions">
-          <a className="btn btn--brand btn--lg" href={mailto(dict.contact.email)}>
-            <IconMail />
+          <a
+            className="btn btn--brand btn--lg"
+            href="#contact"
+            aria-haspopup="dialog"
+            onClick={(e) => {
+              e.preventDefault();
+              contact({ tab: HIRING_TITLES.has(id) ? "hiring" : "message" });
+            }}
+          >
+            <IconChat />
             {ui.getInTouch}
           </a>
           <button

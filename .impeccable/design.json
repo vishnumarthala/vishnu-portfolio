@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T00:01:25+02:00",
+  "generatedAt": "2026-10-19T16:30:00+02:00",
   "title": "Design System: Vishnu Marthala",
   "extensions": {
     "colorMeta": {
@@ -193,6 +193,37 @@
           "#fdb359",
           "#ffebd5"
         ]
+      },
+      "plate-ink": {
+        "role": "neutral",
+        "displayName": "Plate Ink",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a1a1a1",
+          "#c7c7c7",
+          "#eeeeee"
+        ]
+      },
+      "error": {
+        "role": "functional",
+        "displayName": "Error Salmon",
+        "canonical": "oklch(79% 0.122 29.9)",
+        "cssVar": "--error",
+        "tonalRamp": [
+          "#1c0201",
+          "#40130d",
+          "#692820",
+          "#943f34",
+          "#be6154",
+          "#e28475",
+          "#ffb0a3",
+          "#ffded3"
+        ]
       }
     },
     "typographyMeta": {
@@ -208,12 +239,12 @@
       },
       "display-serif": {
         "displayName": "Display Serif",
-        "purpose": "Serif-face per-title logotypes for academic and community titles. Instrument Serif italic.",
+        "purpose": "Serif-face per-title logotypes for academic titles. Instrument Serif italic.",
         "cssClass": "face--serif"
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Closing-passage headings: contact, FAQ, legal."
+        "purpose": "Closing-passage headings: contact, FAQ, legal; and the contact sheet title."
       },
       "title": {
         "displayName": "Title",
@@ -226,6 +257,10 @@
       "body": {
         "displayName": "Body",
         "purpose": "Synopses, episode text, FAQ answers; 54 to 62ch."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "The one step below body (0.875rem): hints, notes, facts and details; way-row details, field hints and errors, optional notes, choice chips, btn--sm."
       },
       "label": {
         "displayName": "Label",
@@ -377,17 +412,17 @@
       "name": "Brand Button",
       "kind": "button",
       "refersTo": "button-brand",
-      "description": "The primary action, \"Get in touch\": --lg on the billboard, base in the dialog, --xl in the closing contact block. One per view.",
-      "html": "<a class=\"ds-btn-brand\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1\"/><path d=\"M3 7l9 6 9-6\"/></svg>Get in touch</a>",
+      "description": "The one primary action per view: \"Get in touch\" (--lg billboard, base dialog; opens the contact sheet), \"Chat on WhatsApp\" (--xl closing block), \"Send via WhatsApp\" (request form). Chat-bubble icon, Plate Ink on Vermilion Plate.",
+      "html": "<a class=\"ds-btn-brand\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6Z\"/><path d=\"M9 10.5h6M9 13.5h4\"/></svg>Get in touch</a>",
       "css": ".ds-btn-brand { display: inline-flex; align-items: center; gap: 0.6rem; border: 0; border-radius: 4px; background: #d42f1b; color: #fff; font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: clamp(1rem, 1.25vw, 1.2rem); line-height: 1; padding: 0.9rem 1.8rem 0.9rem 1.4rem; text-decoration: none; cursor: pointer; transition: background-color 0.2s, transform 0.15s; } .ds-btn-brand svg { width: 1.35em; height: 1.35em; } .ds-btn-brand:hover { background: #b92612; } .ds-btn-brand:active { transform: scale(0.98); } .ds-btn-brand:focus-visible { outline: 2px solid #f3eeea; outline-offset: 3px; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "External links inside the title dialog.",
-      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Visit site</a>",
-      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 4px; background: transparent; color: #f3eeea; box-shadow: inset 0 0 0 1px rgb(243 238 234 / 0.5); font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 1rem; line-height: 1; padding: 0.8rem 1.5rem 0.8rem 1.2rem; text-decoration: none; transition: background-color 0.2s, box-shadow 0.2s; } .ds-btn-ghost:hover { background: rgb(243 238 234 / 0.08); box-shadow: inset 0 0 0 1px #f3eeea; } .ds-btn-ghost:focus-visible { outline: 2px solid #f3eeea; outline-offset: 3px; }"
+      "description": "External links in the title dialog, \"Send by email\" in the request form, the --xl \"Hiring from India? Send a request\" in the closing block; --sm for the email row's copy and write actions.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Visit site</a> <button class=\"ds-btn-ghost ds-btn-sm\" type=\"button\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"8.5\" y=\"8.5\" width=\"11\" height=\"11\" rx=\"1.5\"/><path d=\"M15.5 8.5V5.5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3\"/></svg>Copy address</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 4px; background: transparent; color: #f3eeea; box-shadow: inset 0 0 0 1px rgb(243 238 234 / 0.5); font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 1rem; line-height: 1; padding: 0.8rem 1.5rem 0.8rem 1.2rem; text-decoration: none; transition: background-color 0.2s, box-shadow 0.2s; } .ds-btn-ghost:hover { background: rgb(243 238 234 / 0.08); box-shadow: inset 0 0 0 1px #f3eeea; } .ds-btn-ghost:focus-visible { outline: 2px solid #f3eeea; outline-offset: 3px; } .ds-btn-ghost svg { width: 1.35em; height: 1.35em; flex: none; } .ds-btn-sm { font-size: 0.875rem; padding: 0.55rem 0.85rem; gap: 0.45rem; }"
     },
     {
       "name": "Status Pills and Monogram",
@@ -422,6 +457,22 @@
       "css": ".ds-search { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0 0.5rem; border: 1px solid #f3eeea; background: rgb(10 8 9 / 0.8); color: #f3eeea; font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif; } .ds-search svg { width: 1.3rem; height: 1.3rem; flex: none; } .ds-search input { width: 14rem; padding: 0.45rem 0.25rem; border: 0; background: transparent; color: #f3eeea; font: inherit; font-size: 0.9rem; outline: none; transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-search input::placeholder { color: #9a908b; } .ds-search:focus-within { outline: 2px solid #f3eeea; outline-offset: 2px; }"
     },
     {
+      "name": "Request Form Fields",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Employer request form in the sheet's hiring tab: Screen inputs with a Faint Grey border, optional notes, Error Salmon validation, and choice chips that fill Screen White when selected.",
+      "html": "<div class=\"ds-form\"><div class=\"ds-field\"><label class=\"ds-field__label\" for=\"ds-co\">Company</label><input id=\"ds-co\" type=\"text\" placeholder=\"Company name\"></div><div class=\"ds-field ds-field--error\"><label class=\"ds-field__label\" for=\"ds-em\">Work email</label><input id=\"ds-em\" type=\"email\" aria-invalid=\"true\"><span class=\"ds-field__error\">Enter an email address so I can reply.</span></div><div class=\"ds-field\"><label class=\"ds-field__label\" for=\"ds-ro\">Roles <span class=\"ds-opt\">optional</span></label><input id=\"ds-ro\" type=\"text\"></div><fieldset class=\"ds-set\"><legend>Areas <span class=\"ds-opt\">optional</span></legend><div class=\"ds-chips\"><label class=\"ds-chip\"><input type=\"checkbox\" checked><span>Welding</span></label><label class=\"ds-chip\"><input type=\"checkbox\"><span>Nursing</span></label><label class=\"ds-chip\"><input type=\"checkbox\"><span>IT</span></label></div></fieldset></div>",
+      "css": ".ds-form { display: grid; gap: 1rem; max-width: 36rem; padding: 1.5rem; background: var(--panel, #201b1c); color: var(--text, #f3eeea); font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif; } .ds-field { display: grid; gap: 0.35rem; } .ds-field__label, .ds-set legend { font-weight: 700; font-size: 1rem; } .ds-opt { font-weight: 500; color: var(--text-3, #9a908b); font-size: 0.875rem; } .ds-field input { width: 100%; box-sizing: border-box; padding: 0.75rem 0.85rem; border: 1px solid var(--text-3, #9a908b); border-radius: 4px; background: var(--screen, #141112); color: var(--text, #f3eeea); font: inherit; font-size: 1rem; transition: border-color 0.2s; } .ds-field input::placeholder { color: var(--text-3, #9a908b); } .ds-field input:hover { border-color: var(--text-2, #c5bcb7); } .ds-field input:focus-visible { outline: 2px solid #f3eeea; outline-offset: 1px; border-color: #f3eeea; } .ds-field--error input { border-color: var(--error, #ff9c8c); } .ds-field__error { color: var(--error, #ff9c8c); font-size: 0.875rem; } .ds-set { margin: 0; padding: 0; border: 0; } .ds-set legend { margin-bottom: 0.55rem; padding: 0; } .ds-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; } .ds-chip { position: relative; cursor: pointer; } .ds-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; } .ds-chip span { display: inline-block; padding: 0.45rem 0.85rem; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--text-3, #9a908b); color: var(--text-2, #c5bcb7); font-size: 0.875rem; font-weight: 600; transition: background-color 0.2s, color 0.2s, box-shadow 0.2s; } .ds-chip:hover span { box-shadow: inset 0 0 0 1px var(--text-2, #c5bcb7); color: #f3eeea; } .ds-chip input:checked + span { background: #f3eeea; color: #141112; box-shadow: none; } .ds-chip input:focus-visible + span { outline: 2px solid #f3eeea; outline-offset: 2px; }"
+    },
+    {
+      "name": "Contact Sheet",
+      "kind": "custom",
+      "refersTo": "contact-sheet",
+      "description": "Native dialog opened by every \"Get in touch\": headline title, lede, underline tabs (Message me / Hiring from India), way rows with the WhatsApp row as the primary.",
+      "html": "<div class=\"ds-sheet\"><h2 class=\"ds-sheet__title\">Get in touch</h2><p class=\"ds-sheet__lead\">The fastest way is WhatsApp. Email works too.</p><div class=\"ds-sheet__tabs\" role=\"tablist\"><button class=\"ds-sheet__tab\" role=\"tab\" aria-selected=\"true\">Message me</button><button class=\"ds-sheet__tab\" role=\"tab\" aria-selected=\"false\">Hiring from India</button></div><ul class=\"ds-ways\"><li><a class=\"ds-way ds-way--primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-way__icon\" aria-hidden=\"true\"><path d=\"M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6Z\"/><path d=\"M9 10.5h6M9 13.5h4\"/></svg><span class=\"ds-way__text\"><span class=\"ds-way__label\">Chat on WhatsApp</span><span class=\"ds-way__detail\">+91 00000 00000</span></span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-way__go\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></li><li><a class=\"ds-way\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-way__icon\" aria-hidden=\"true\"><path d=\"M5 4h3.5l1.8 4.4-2.3 1.5a11 11 0 0 0 6.1 6.1l1.5-2.3L20 15.5V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z\"/></svg><span class=\"ds-way__text\"><span class=\"ds-way__label\">Call</span><span class=\"ds-way__detail\">+91 00000 00000</span></span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-way__go\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></li></ul></div>",
+      "css": ".ds-sheet { max-width: 44rem; padding: clamp(1.4rem, 3.5vw, 2.4rem); border-radius: 8px; background: var(--panel, #201b1c); color: var(--text, #f3eeea); font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif; box-shadow: 0 24px 64px rgb(0 0 0 / 0.7); } .ds-sheet__title { margin: 0; font-size: clamp(2rem, 4.4vw, 3.5rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; } .ds-sheet__lead { margin: 0.55rem 0 0; color: var(--text-2, #c5bcb7); max-width: 46ch; } .ds-sheet__tabs { display: flex; gap: 1.6rem; margin: 1.6rem 0 1.4rem; border-bottom: 1px solid var(--line, #3a3233); } .ds-sheet__tab { position: relative; padding: 0.7rem 0; background: none; border: 0; color: var(--text-3, #9a908b); font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; transition: color 0.2s; } .ds-sheet__tab:hover { color: var(--text-2, #c5bcb7); } .ds-sheet__tab[aria-selected=\"true\"] { color: var(--text, #f3eeea); } .ds-sheet__tab[aria-selected=\"true\"]::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--brand, #e8442c); } .ds-sheet__tab:focus-visible { outline: 2px solid #f3eeea; outline-offset: 3px; } .ds-ways { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-way { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.1rem; border-radius: 4px; background: var(--panel-2, #2c2627); color: var(--text, #f3eeea); text-decoration: none; transition: background-color 0.2s; } .ds-way:hover { background: var(--panel-3, #3a3233); } .ds-way:focus-visible { outline: 2px solid #f3eeea; outline-offset: 3px; } .ds-way--primary { background: var(--brand-btn, #d42f1b); color: #fff; } .ds-way--primary:hover { background: var(--brand-btn-hover, #b92612); } .ds-way__icon { width: 1.6rem; height: 1.6rem; flex: none; } .ds-way__text { display: grid; gap: 0.1rem; flex: 1; min-width: 0; } .ds-way__label { font-weight: 700; font-size: 1rem; } .ds-way__detail { color: var(--text-2, #c5bcb7); font-size: 0.875rem; font-variant-numeric: tabular-nums; } .ds-way--primary .ds-way__detail { color: inherit; } .ds-way__go { width: 1.25rem; height: 1.25rem; flex: none; opacity: 0.8; transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-way:hover .ds-way__go { transform: translateX(3px); }"
+    },
+    {
       "name": "FAQ Row",
       "kind": "custom",
       "refersTo": "faq-row",
@@ -432,7 +483,7 @@
   ],
   "narrative": {
     "northStar": "A Career on Demand",
-    "overview": "The site is a streaming service whose whole catalogue is one person. Every role, venture, degree and project is a title with its own key art, synopsis, format badge and episodes, and the visitor browses a career the way they browse a service at night: a profile gate, a full-bleed billboard, horizontal rails, an expanding preview, a detail dialog. The grammar is the streaming interface; the identity is not borrowed from any real service. The service identity is a mixed-case vermilion wordmark, \"Vishnu Marthala\", plus an outlined \"VM\" monogram drawn in whatever ink surrounds it.\n\nThe ground is a warm near-black, never blue-black, so the room feels lit by the screen rather than by a dashboard. Chrome stays neutral and quiet, warm off-white on warm near-black, so the colour can belong to the key art: each title carries its own authored palette and generative SVG motif (lattices, routes, dot fields, tally marks, Telugu script, attention matrices, toolpaths, circuits, seals). Vermilion is the service's own voice and appears only where the service speaks: the wordmark, the primary \"Get in touch\" action, the live \"current\" state, the active language, the fact separators.\n\nDensity is catalogue density, not document density. Several rails stack with tight tile gaps and generous gutters, type is set for scanning, and depth comes from the art and from overlays rather than from boxes. Motion is eased-out and arrives only on intent: one monogram intro per profile pick, hover-expand after a deliberate pause, an art-to-dialog morph. Reduced motion removes all three.",
+    "overview": "The site is a streaming service whose whole catalogue is one person. Every role, venture, degree and project is a title with its own key art, synopsis, format badge and episodes, and the visitor browses a career the way they browse a service at night: a profile gate, a full-bleed billboard, horizontal rails, an expanding preview, a detail dialog. The grammar is the streaming interface; the identity is not borrowed from any real service. The service identity is a mixed-case vermilion wordmark, \"Vishnu Marthala\", plus an outlined \"VM\" monogram drawn in whatever ink surrounds it.\n\nThe ground is a warm near-black, never blue-black, so the room feels lit by the screen rather than by a dashboard. Chrome stays neutral and quiet, warm off-white on warm near-black, so the colour can belong to the key art: each title carries its own authored palette and generative SVG motif (lattices, routes, dot fields, tally marks, Telugu script, attention matrices, toolpaths, circuits, seals). Vermilion is the service's own voice and appears only where the service speaks: the wordmark, the primary \"Get in touch\" action and its WhatsApp counterparts in the contact sheet, the live \"current\" state, the active language, the fact separators.\n\nDensity is catalogue density, not document density. Several rails stack with tight tile gaps and generous gutters, type is set for scanning, and depth comes from the art and from overlays rather than from boxes. Motion is eased-out and arrives only on intent: one monogram intro per profile pick, hover-expand after a deliberate pause, an art-to-dialog morph. Reduced motion removes all three.",
     "keyCharacteristics": [
       "Warm near-black ground with tonal panels a few steps up; no cool greys.",
       "One family, Archivo, at fixed widths (62% condensed, 88% for the mark, 100%, 125% wide) plus Instrument Serif italic as a third title voice.",
@@ -444,12 +495,12 @@
     "rules": [
       {
         "name": "The Service Voice Rule",
-        "body": "Vermilion is only ever the service speaking: wordmark, primary action, live \"current\" state, active language, fact dots. It never decorates chrome, never tints a panel, never colours a heading, never fills the monogram.",
+        "body": "Vermilion is only ever the service speaking: wordmark, primary action, live \"current\" state, active language, fact dots, the selected sheet tab's underline. It never decorates chrome, never tints a panel (the request form's error summary is the one functional tint), never colours a heading, never fills the monogram.",
         "section": "colors"
       },
       {
         "name": "The Art Owns the Colour Rule",
-        "body": "Any hue beyond the neutrals and the vermilion family belongs inside a title's key art. Chrome around the art stays warm neutral so seventeen palettes can sit in one rail without fighting the interface.",
+        "body": "Any hue beyond the neutrals and the vermilion family (Error Salmon included) belongs inside a title's key art. Chrome around the art stays warm neutral so seventeen palettes can sit in one rail without fighting the interface.",
         "section": "colors"
       },
       {
@@ -481,7 +532,9 @@
     "dos": [
       "**Do** give every new title key art: a motif, its own background/ink/accent, and one of the three faces. A title without art does not enter a rail.",
       "**Do** keep chrome in the warm neutral ladder and let colour come from art.",
-      "**Do** keep vermilion to the wordmark, the primary \"Get in touch\", the live \"current\" state, the active language and the fact dots.",
+      "**Do** keep vermilion to the wordmark, the one primary per view (\"Get in touch\", or \"Chat on WhatsApp\" / \"Send via WhatsApp\" as the contact sheet's and closing block's primary), the live \"current\" state, the active language, the selected sheet tab's underline and the fact dots.",
+      "**Do** route every \"Get in touch\" to the contact sheet, with the chat-bubble icon, and open it on the hiring tab where the visitor is an employer.",
+      "**Do** mark optional fields as \"optional\" and leave required ones unmarked; clear each error as soon as its field is filled.",
       "**Do** keep the key-art badge zone (top-left, about 45% × 22%) clear of motif marks.",
       "**Do** draw the monogram as an outline in the surrounding ink, inline beside the format word.",
       "**Do** derive tile sizes from `pad`, `gap` and `per` so a partial tile always peeks at the right edge.",
@@ -492,7 +545,9 @@
     "donts": [
       "**Don't** reproduce a real streaming service's logo, wordmark, typeface or \"N\"; the identity is the mixed-case wordmark and the outlined VM monogram.",
       "**Don't** use cool greys or blue-black anywhere in the chrome.",
-      "**Don't** fill a heading, panel or secondary button with vermilion; the only vermilion button is the primary \"Get in touch\".",
+      "**Don't** fill a heading, panel or secondary button with vermilion; the only vermilion surfaces are the one primary action per view, the current pill and band, and the 16% error-summary tint.",
+      "**Don't** use Error Salmon for anything but an invalid field, or set Plate Ink anywhere but on Vermilion Plate.",
+      "**Don't** make the site send or store a contact request; the sheet composes and hands off to WhatsApp or the mail app.",
       "**Don't** fill the monogram as a red badge, and don't place the monogram and format word above a heading as an eyebrow.",
       "**Don't** set the wordmark in condensed caps.",
       "**Don't** add shadows to tiles, cards or rows at rest.",

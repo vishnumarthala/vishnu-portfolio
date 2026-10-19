@@ -1,9 +1,10 @@
 "use client";
 
-import { searchTitles, mailto, useCatalog } from "./catalog";
+import { copyText, searchTitles, mailto, useCatalog, whatsapp } from "./catalog";
+import { useEffect, useState } from "react";
 import LangSwitch from "./LangSwitch";
 import Tile from "./Tile";
-import { IconArrowRight, IconLinkedIn, IconMail, IconPhone, IconPin, IconPlus } from "./icons";
+import { IconArrowRight, IconChat, IconCheck, IconCopy, IconLinkedIn, IconPhone, IconPin, IconPlus } from "./icons";
 
 export function SearchResults({ query }: { query: string }) {
   const { dict } = useCatalog();
@@ -26,8 +27,15 @@ export function SearchResults({ query }: { query: string }) {
 }
 
 export function Contact() {
-  const { dict } = useCatalog();
+  const { dict, contact } = useCatalog();
   const c = dict.contact;
+  const [copied, setCopied] = useState(false);
+  useEffect(() => {
+    if (!copied) return;
+    const t = window.setTimeout(() => setCopied(false), 2400);
+    return () => window.clearTimeout(t);
+  }, [copied]);
+
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title" className="contact__title">
@@ -35,18 +43,34 @@ export function Contact() {
       </h2>
       <p className="contact__lead">{c.lead}</p>
       <div className="contact__cta">
-        <a className="btn btn--brand btn--xl" href={mailto(c.email)}>
-          {dict.ui.getInTouch}
-          <IconArrowRight />
+        <a className="btn btn--brand btn--xl" href={whatsapp(c.whatsappNumber, dict.sheet.greeting)} target="_blank" rel="noopener noreferrer">
+          <IconChat />
+          {dict.sheet.whatsapp}
         </a>
-        <a className="contact__email" href={mailto(c.email)}>
+        <button type="button" className="btn btn--ghost btn--xl" aria-haspopup="dialog" onClick={() => contact({ tab: "hiring" })}>
+          {c.hiringCta}
+          <IconArrowRight />
+        </button>
+      </div>
+      <p className="contact__emailRow">
+        <a className="contact__email" href={mailto(c.email, dict.sheet.emailSubject)}>
           {c.email}
         </a>
-      </div>
+        <button type="button" className="text-btn contact__copy" onClick={async () => setCopied(await copyText(c.email))}>
+          {copied ? <IconCheck /> : <IconCopy />}
+          <span aria-live="polite">{copied ? dict.sheet.copied : dict.sheet.copy}</span>
+        </button>
+      </p>
       <ul className="contact__list">
         <li>
           <IconPhone />
           <a href={c.phoneHref}>{c.phone}</a>
+        </li>
+        <li>
+          <IconChat />
+          <a href={whatsapp(c.whatsappNumber)} target="_blank" rel="noopener noreferrer">
+            WhatsApp
+          </a>
         </li>
         {c.linkedin ? (
           <li>
@@ -56,10 +80,6 @@ export function Contact() {
             </a>
           </li>
         ) : null}
-        <li>
-          <IconMail />
-          <a href={mailto(c.email)}>{c.email}</a>
-        </li>
         <li>
           <IconPin />
           <span>{c.location}</span>

@@ -10,6 +10,7 @@
   --brand: #e8442c;
   --brand-btn: #d42f1b;
   --brand-btn-hover: #b92612;
+  --error: #ff9c8c;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --pad: clamp(1rem, 4vw, 3.75rem);
   --gap: clamp(0.4rem, 0.6vw, 0.6rem);
