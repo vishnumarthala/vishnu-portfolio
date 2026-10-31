@@ -93,7 +93,7 @@ function Body({ id, onRequestClose }: { id: TitleId; onRequestClose: () => void 
               {t.format}
             </span>
             {t.status ? (
-              <span className={`pill pill--${t.status}`}>{t.status === "current" ? ui.current : ui.comingSoon}</span>
+              <span className={`pill pill--${t.status}`}>{t.status === "current" ? ui.current : t.status === "new" ? ui.isNew : ui.comingSoon}</span>
             ) : null}
             {t.meta.map((m) => (
               <span key={m}>{m}</span>

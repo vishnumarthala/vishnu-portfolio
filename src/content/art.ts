@@ -45,6 +45,6 @@ export const art: Record<TitleId, ArtSpec> = {
   keb: { motif: "wave", bg: "#0e3838", ink: "#dff6f2", accent: "#4fe3c1", face: "cond" },
   "msc-stuttgart": { motif: "perspective", bg: "#e7e2d6", ink: "#1e2a3a", accent: "#d8301c", face: "serif" },
   "btech-vit": { motif: "circuit", bg: "#0d2b1f", ink: "#e2f5e8", accent: "#f2c14e", face: "serif" },
-  "zero-to-gpu": { motif: "die", bg: "#141112", ink: "#f3eeea", accent: "#e8442c", face: "cond" },
+  "zero-to-gpu": { motif: "die", bg: "#2a1716", ink: "#f3eeea", accent: "#e8442c", face: "cond" },
   cpsa: { motif: "seal", bg: "#f1cf63", ink: "#2a1a06", accent: "#8a3b12", face: "wide" },
 };

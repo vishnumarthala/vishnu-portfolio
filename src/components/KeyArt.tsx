@@ -329,8 +329,8 @@ const motifs: Record<Motif, Draw> = {
     return out;
   },
 
-  die(w, h) {
-    return gpuArt({ w, h, progress: 0.55, cx: 0.72 });
+  die(w, h, s) {
+    return gpuArt({ w, h, progress: 0.55, cx: 0.79, cy: 0.36, scale: 0.68, ground: s.bg });
   },
 
   seal(w, h, s) {

@@ -6,7 +6,7 @@ export const hasLocale = (value: string): value is Locale =>
 
 export type ProfileId = "ai" | "hiring" | "browse";
 export type RowKind = "wide" | "standard" | "numbered" | "soon";
-export type Status = "current" | "soon";
+export type Status = "current" | "soon" | "new";
 
 export type TitleId =
   | "vishnu"
@@ -29,6 +29,7 @@ export type TitleId =
   | "cpsa";
 
 export type RowId =
+  | "series"
   | "tracks"
   | "ventures"
   | "ai-work"
@@ -117,6 +118,7 @@ export interface Dict {
     close: string;
     current: string;
     comingSoon: string;
+    isNew: string;
     notify: string;
     role: string;
     place: string;

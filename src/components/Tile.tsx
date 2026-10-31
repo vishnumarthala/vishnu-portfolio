@@ -16,8 +16,8 @@ export default function Tile({ id, kind, index }: Props) {
   const t = dict.titles[id];
   const { ui } = dict;
   const band =
-    t.status === "current"
-      ? { text: ui.current, tone: "current" as const }
+    t.status === "current" || t.status === "new"
+      ? { text: t.status === "new" ? ui.isNew : ui.current, tone: "current" as const }
       : t.status === "soon"
         ? { text: ui.comingSoon, tone: "soon" as const }
         : undefined;

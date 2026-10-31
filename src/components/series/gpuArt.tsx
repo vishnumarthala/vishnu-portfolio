@@ -25,17 +25,22 @@ interface Options {
   h: number;
   /** Share of compute units lit, 0 to 1. */
   progress: number;
-  /** Horizontal centre of the die as a share of the width. */
+  /** Centre of the die as a share of the width and height. */
   cx?: number;
+  cy?: number;
+  /** Die size relative to the default (half the height). */
+  scale?: number;
+  /** Fill for the memory chips, matching whatever the drawing sits on. */
+  ground?: string;
 }
 
-export function gpuArt({ w, h, progress, cx = 0.7 }: Options): ReactNode[] {
+export function gpuArt({ w, h, progress, cx = 0.7, cy = 0.47, scale = 1, ground = GPU_ART.bg }: Options): ReactNode[] {
   const { ink, accent, ember } = GPU_ART;
   const rnd = seeded("zero-to-gpu");
   const out: ReactNode[] = [];
-  const s = h * 0.5;
+  const s = h * 0.5 * scale;
   const x0 = w * cx - s / 2;
-  const y0 = h * 0.47 - s / 2;
+  const y0 = h * cy - s / 2;
   const n = 8;
   const gap = s * 0.018;
   const pad = s * 0.07;
@@ -65,7 +70,7 @@ export function gpuArt({ w, h, progress, cx = 0.7 }: Options): ReactNode[] {
         : [mx, my + off, mx < x0 ? x0 : x0 + s, my + off];
       out.push(<line key={`t${i}${t}`} x1={r1(ax)} y1={r1(ay)} x2={r1(bx)} y2={r1(by)} stroke={ink} strokeOpacity={0.16} strokeWidth={1} />);
     }
-    out.push(<rect key={`m${i}`} x={r1(x)} y={r1(y)} width={r1(cw)} height={r1(ch)} rx={2} fill={GPU_ART.bg} stroke={ink} strokeOpacity={0.55} strokeWidth={1.2} />);
+    out.push(<rect key={`m${i}`} x={r1(x)} y={r1(y)} width={r1(cw)} height={r1(ch)} rx={2} fill={ground} stroke={ink} strokeOpacity={0.55} strokeWidth={1.2} />);
   });
 
   // The die
