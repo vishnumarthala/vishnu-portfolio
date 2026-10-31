@@ -5,7 +5,7 @@ import { art } from "@/content/art";
 import type { TitleId } from "@/content/types";
 import KeyArt from "./KeyArt";
 import { HIRING_TITLES, relatedTitles, useCatalog } from "./catalog";
-import { IconClose, IconExternal, IconChat } from "./icons";
+import { IconArrowRight, IconClose, IconExternal, IconChat } from "./icons";
 
 interface Props {
   id: TitleId | null;
@@ -68,7 +68,12 @@ function Body({ id, onRequestClose }: { id: TitleId; onRequestClose: () => void 
               <IconChat />
               {ui.getInTouch}
             </button>
-            {t.link ? (
+            {t.link?.href.startsWith("/") ? (
+              <a className="btn btn--light" href={t.link.href}>
+                <IconArrowRight />
+                {t.link.label}
+              </a>
+            ) : t.link ? (
               <a className="btn btn--ghost" href={t.link.href} target="_blank" rel="noopener noreferrer">
                 <IconExternal />
                 {t.link.label}

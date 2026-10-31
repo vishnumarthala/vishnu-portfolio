@@ -1,4 +1,5 @@
 import type { Dict } from "./types";
+import gpu from "./series/zero-to-gpu.de";
 import { EMAIL, LINKEDIN_URL, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_NUMBER } from "./site";
 
 const de: Dict = {
@@ -103,7 +104,7 @@ const de: Dict = {
       kind: "standard",
       title: "Ausgewählte KI-Projekte",
       claim: "Sprachmodelle, angewandt und gelehrt.",
-      items: ["telugu-rag", "overseas-scholar", "transformers-course", "enterprise-ai"],
+      items: ["zero-to-gpu", "telugu-rag", "overseas-scholar", "transformers-course", "enterprise-ai"],
     },
     {
       id: "experience",
@@ -306,6 +307,18 @@ const de: Dict = {
       synopsis:
         "Ein Zertifikatskurs zu Transformern und Large Language Models, angeboten über Marthala Solutions.",
       tags: ["Transformers", "Zertifikatskurs"],
+    },
+    "zero-to-gpu": {
+      id: "zero-to-gpu",
+      name: "Zero to GPU",
+      format: gpu.format,
+      meta: [`${gpu.episodes.length} Folgen`, "Praxisnah", "DE · EN"],
+      role: "Schreiben und Lehren",
+      tagline: gpu.tagline,
+      synopsis: gpu.synopsis,
+      tags: ["GPU", "Lokale LLMs", "CUDA", "Ollama", "KI-Infrastruktur"],
+      episodes: { heading: "Folgen", items: gpu.episodes.map((e) => ({ title: e.title, text: e.hook })) },
+      link: { href: "/de/series/zero-to-gpu", label: "Serie ansehen" },
     },
     roche: {
       id: "roche",

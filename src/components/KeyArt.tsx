@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { art, type ArtSpec, type Motif } from "@/content/art";
 import type { TitleId } from "@/content/types";
+import { gpuArt } from "./series/gpuArt";
 
 type Shape = "tile" | "poster" | "hero";
 
@@ -326,6 +327,10 @@ const motifs: Record<Motif, Draw> = {
     out.push(<circle key="o" cx={r1(ox)} cy={r1(oy)} r={4.2} fill={s.accent} />);
     out.push(<circle key="og" cx={r1(ox)} cy={r1(oy)} r={10} fill="none" stroke={s.accent} strokeOpacity={0.5} />);
     return out;
+  },
+
+  die(w, h) {
+    return gpuArt({ w, h, progress: 0.55, cx: 0.72 });
   },
 
   seal(w, h, s) {

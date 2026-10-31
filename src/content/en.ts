@@ -1,4 +1,5 @@
 import type { Dict } from "./types";
+import gpu from "./series/zero-to-gpu.en";
 import { EMAIL, LINKEDIN_URL, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_NUMBER } from "./site";
 
 const en: Dict = {
@@ -103,7 +104,7 @@ const en: Dict = {
       kind: "standard",
       title: "Selected AI work",
       claim: "Language models, applied and taught.",
-      items: ["telugu-rag", "overseas-scholar", "transformers-course", "enterprise-ai"],
+      items: ["zero-to-gpu", "telugu-rag", "overseas-scholar", "transformers-course", "enterprise-ai"],
     },
     {
       id: "experience",
@@ -306,6 +307,18 @@ const en: Dict = {
       synopsis:
         "A certificate course on Transformers and Large Language Models, offered through Marthala Solutions.",
       tags: ["Transformers", "Certificate course"],
+    },
+    "zero-to-gpu": {
+      id: "zero-to-gpu",
+      name: "Zero to GPU",
+      format: gpu.format,
+      meta: [`${gpu.episodes.length} episodes`, "Hands-on", "EN · DE"],
+      role: "Writing and teaching",
+      tagline: gpu.tagline,
+      synopsis: gpu.synopsis,
+      tags: ["GPU", "Local LLMs", "CUDA", "Ollama", "AI infrastructure"],
+      episodes: { heading: "Episodes", items: gpu.episodes.map((e) => ({ title: e.title, text: e.hook })) },
+      link: { href: "/en/series/zero-to-gpu", label: "Watch the series" },
     },
     roche: {
       id: "roche",

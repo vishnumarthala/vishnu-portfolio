@@ -19,6 +19,7 @@ export type TitleId =
   | "telugu-rag"
   | "overseas-scholar"
   | "transformers-course"
+  | "zero-to-gpu"
   | "roche"
   | "festo"
   | "dmg-mori"
