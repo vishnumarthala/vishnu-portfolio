@@ -447,7 +447,7 @@ const en: Dict = {
     sendEmail: "Send by email",
     copy: "Copy request",
     copied: "Request copied",
-    note: "Nothing is stored or sent by this website. You review and send the message yourself.",
+    note: "Your request is also saved in my contact list so I can follow up. You review and send the message yourself.",
     errors: {
       company: "Please enter your company.",
       name: "Please enter your name.",
@@ -549,7 +549,8 @@ const en: Dict = {
           heading: "Contact by email, phone or WhatsApp",
           text: [
             "If you contact me, I process the data you send solely to answer your request (Art. 6 (1) (b) and (f) GDPR).",
-            "The hiring request form on this site does not send or store anything. It only prepares a message, which opens in WhatsApp or your email app for you to review and send yourself.",
+            "The hiring request form prepares a message that opens in WhatsApp or your email app for you to review and send yourself. When you send it, the details you entered (name, company, email or phone and your request) are also stored in my contact database so I can follow up.",
+            "The contact database is operated by Supabase Inc. under a data processing agreement and is shared with my company Marthala Solutions. New requests trigger an internal email notification sent through Resend (Plus Five Five, Inc., USA). Transfers outside the EU are covered by the EU Standard Contractual Clauses. Requests are deleted once they are no longer needed, at the latest 12 months after our last contact, unless a business relationship follows.",
             "If you choose WhatsApp, the message is transmitted by WhatsApp Ireland Limited (Meta) under its own privacy policy.",
           ],
         },

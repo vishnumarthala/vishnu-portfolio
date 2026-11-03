@@ -447,7 +447,7 @@ const de: Dict = {
     sendEmail: "Per E-Mail senden",
     copy: "Anfrage kopieren",
     copied: "Anfrage kopiert",
-    note: "Diese Website speichert und versendet nichts. Sie prüfen und senden die Nachricht selbst.",
+    note: "Ihre Anfrage wird zusätzlich in meiner Kontaktliste gespeichert, damit ich mich melden kann. Sie prüfen und senden die Nachricht selbst.",
     errors: {
       company: "Bitte geben Sie Ihr Unternehmen an.",
       name: "Bitte geben Sie Ihren Namen an.",
@@ -549,7 +549,8 @@ const de: Dict = {
           heading: "Kontakt per E-Mail, Telefon oder WhatsApp",
           text: [
             "Wenn Sie mich kontaktieren, verarbeite ich Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b und f DSGVO).",
-            "Das Anfrageformular auf dieser Website versendet und speichert nichts. Es bereitet nur eine Nachricht vor, die sich in WhatsApp oder Ihrem E-Mail-Programm öffnet, damit Sie sie prüfen und selbst senden.",
+            "Das Anfrageformular bereitet eine Nachricht vor, die sich in WhatsApp oder Ihrem E-Mail-Programm öffnet, damit Sie sie prüfen und selbst senden. Beim Absenden werden Ihre Angaben (Name, Unternehmen, E-Mail oder Telefon und Ihre Anfrage) zusätzlich in meiner Kontaktdatenbank gespeichert, damit ich mich bei Ihnen melden kann.",
+            "Die Kontaktdatenbank wird von Supabase Inc. im Auftrag betrieben (Auftragsverarbeitungsvertrag) und gemeinsam mit meinem Unternehmen Marthala Solutions genutzt. Bei neuen Anfragen wird eine interne E-Mail-Benachrichtigung über Resend (Plus Five Five, Inc., USA) versendet. Übermittlungen außerhalb der EU erfolgen auf Grundlage der EU-Standardvertragsklauseln. Anfragen werden gelöscht, sobald sie nicht mehr benötigt werden, spätestens 12 Monate nach dem letzten Kontakt, sofern keine Geschäftsbeziehung entsteht.",
             "Wenn Sie WhatsApp wählen, wird die Nachricht von WhatsApp Ireland Limited (Meta) nach deren eigener Datenschutzerklärung übertragen.",
           ],
         },

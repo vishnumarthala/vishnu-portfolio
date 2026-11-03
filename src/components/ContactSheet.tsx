@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useLayoutEffect, useRef, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import type { Dict } from "@/content/types";
+import { reachFields, saveLead } from "@/lib/crm";
 import { copyText, mailto, useCatalog, whatsapp, type ContactRequest, type ContactTab } from "./catalog";
 import { IconArrowRight, IconChat, IconCheck, IconClose, IconCopy, IconLinkedIn, IconMail, IconPhone } from "./icons";
 
@@ -221,6 +222,9 @@ function HiringForm({ dict, topic }: { dict: Dict; topic?: string }) {
     e.preventDefault();
     const text = compose();
     if (!text) return;
+    const data = new FormData(e.currentTarget);
+    const val = (k: string) => String(data.get(k) ?? "").trim();
+    saveLead({ name: val("name"), organisation: val("company"), ...reachFields(val("reach")), topic: "hiring", message: text });
     const via = (e.nativeEvent as SubmitEvent).submitter?.getAttribute("value");
     if (via === "email") window.location.href = mailto(dict.contact.email, h.subject, text);
     else window.open(whatsapp(dict.contact.whatsappNumber, text), "_blank", "noopener,noreferrer");
